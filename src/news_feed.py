@@ -26,10 +26,13 @@ HOURS = 24
 # RSSのソース一覧。official=True は公式発表で、レポートで優先する。
 # URLは毎回取得して確認し、読めなかったものは失敗として記録する。追加するときは --check で確認する。
 RSS_SOURCES = [
+    # 2026-10-12 ブラウザで取得できることを確認
     {"name": "OpenAI News", "url": "https://openai.com/news/rss.xml", "official": True},
     # 2026-10-12 ブラウザで取得できることを確認（旧URL /technology/ai/rss/ から移転済みのため新URLを使う）
     {"name": "Google AI Blog", "url": "https://blog.google/innovation-and-ai/technology/ai/rss/", "official": True},
-    {"name": "Google Gemini Blog", "url": "https://blog.google/products/gemini/rss/", "official": True},
+    # 2026-10-12 ブラウザで取得できることを確認（旧URL /products/gemini/rss/ から移転済みのため新URLを使う）
+    {"name": "Google Gemini Blog", "url": "https://blog.google/products-and-platforms/products/gemini/rss/", "official": True},
+    # 2026-10-12 ブラウザで取得できることを確認
     {"name": "ITmedia AI+", "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml", "official": False},
 ]
 
@@ -185,6 +188,10 @@ def main() -> int:
             errors.append(f"ニュース「{source['name']}」（{source['url']}）: {short_error(e)}")
 
     # 公式発表を先に、その中では新しい順
+    # Google AI Blog と Gemini Blog には同じ記事が載ることがあるので、URLで重複を除く
+    seen: set[str] = set()
+    articles = [a for a in articles if not (a["url"] in seen or seen.add(a["url"]))]
+
     articles.sort(key=lambda a: a["published_at"], reverse=True)
     articles.sort(key=lambda a: not a["official"])  # 安定ソートなので新しい順は保たれる
 
