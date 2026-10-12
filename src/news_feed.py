@@ -31,7 +31,6 @@ RSS_SOURCES = [
     {"name": "Google AI Blog", "url": "https://blog.google/innovation-and-ai/technology/ai/rss/", "official": True},
     {"name": "Google Gemini Blog", "url": "https://blog.google/products/gemini/rss/", "official": True},
     {"name": "ITmedia AI+", "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml", "official": False},
-    {"name": "Ledge.ai", "url": "https://ledge.ai/feed/", "official": False},
 ]
 
 # Anthropic は公式RSSが無いため、公式のサイトマップ（robots.txt で案内されている）から
