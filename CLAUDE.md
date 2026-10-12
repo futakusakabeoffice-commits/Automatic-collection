@@ -18,6 +18,8 @@ ai-research/
 ├── .env                   APIキー（Gitに入れない）
 ├── .env.example           .env のひな形
 ├── requirements.txt       使うPythonライブラリ
+├── run_daily.bat          毎朝の3スクリプトをまとめて実行（Windows用）
+├── セットアップ手順.md      Windowsでの導入手順
 ├── src/
 │   ├── common.py          共通の設定（日付・保存先）
 │   ├── youtube_trends.py  YouTubeの動画収集
