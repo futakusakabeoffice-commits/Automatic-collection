@@ -27,7 +27,8 @@ HOURS = 24
 # URLは毎回取得して確認し、読めなかったものは失敗として記録する。追加するときは --check で確認する。
 RSS_SOURCES = [
     {"name": "OpenAI News", "url": "https://openai.com/news/rss.xml", "official": True},
-    {"name": "Google AI Blog", "url": "https://blog.google/technology/ai/rss/", "official": True},
+    # 2026-10-12 ブラウザで取得できることを確認（旧URL /technology/ai/rss/ から移転済みのため新URLを使う）
+    {"name": "Google AI Blog", "url": "https://blog.google/innovation-and-ai/technology/ai/rss/", "official": True},
     {"name": "Google Gemini Blog", "url": "https://blog.google/products/gemini/rss/", "official": True},
     {"name": "ITmedia AI+", "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml", "official": False},
     {"name": "Ledge.ai", "url": "https://ledge.ai/feed/", "official": False},
